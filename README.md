@@ -29,7 +29,7 @@ submission.columns = ['PassengerId']
 X_train = X_train.drop(X_train.columns[[1, 3, 8, 10]], axis=1)
 X_test = X_test.drop(X_test.columns[[2, 7, 9]], axis=1)
 
-# Create dummy variables for categorical features
+# Create train dummy variables for categorical features
 dummies = pd.get_dummies(X_train['Pclass']) 
 dummies.columns = ['1st Class', '2nd Class', '3rd Class'] 
 #dummies = dummies.drop(dummies.columns[0], axis=1)
@@ -46,7 +46,7 @@ dummies = pd.get_dummies(X_train['Embarked'])
 X_train = X_train.drop('Embarked', axis=1)
 X_train = X_train.join(dummies) 
 
-# Create dummy variables for categorical features
+# Create test dummy variables for categorical features
 dummies = pd.get_dummies(X_test['Pclass']) 
 dummies.columns = ['1st Class', '2nd Class', '3rd Class'] 
 #dummies = dummies.drop(dummies.columns[0], axis=1)
